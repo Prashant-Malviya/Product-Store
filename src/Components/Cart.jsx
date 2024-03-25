@@ -17,7 +17,7 @@ function Cart() {
 
   const removeFromCart = (id) => {
     dispatch(remove(id));
-    toast.remove("Item Removed Successfully");
+    toast.error("Item Removed Successfully");
   };
   // const history = useHistory();
   const navigate = useNavigate();

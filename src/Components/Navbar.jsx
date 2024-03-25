@@ -22,7 +22,7 @@ function Navbar() {
 
           <div className="absolute flex lg:justify-end justify-center lg:right-10 lg:top-0 p-5 ml-10 mt-7  my-auto right-0">
             <Link to="/cart">
-            <span class="absolute left-8 bottom-8  bg-green-600 text-xs w-5 h-5 flex justify-center items-center animate-bounce rounded-full text-white"> {cartProducts.length} </span>
+            <span class="absolute left-8 bottom-8  bg-green-600 text-xs w-5 h-5 flex justify-center items-center animate-bounce rounded-full text-white font-bold"> {cartProducts.length} </span>
               <FaShoppingCart className="text-white text-2xl" />
             </Link>
           </div>
