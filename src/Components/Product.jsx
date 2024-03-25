@@ -33,23 +33,23 @@ function Product({ product }) {
         </div>
 
         <div className="text-left lg:text-2xl md:text-2xl text-xl py-2">
-          <h2>{product.title}</h2>
+          <h2>{product?.title}</h2>
         </div>
 
         <div className="text-left flex flex-row flex-wrap space-x-5 lg:space-x-8 ">
           <span className="">
-            <span className="text-2xl font-bold mr-1">${product.price}</span>
+            <span className="text-2xl font-bold mr-1">${product?.price}</span>
             <span className="text-sm line line-through mt-2">
-              ${product.price + 255}
+              ${product?.price + 255}
             </span>
           </span>
 
           <div className="flex flex-row lg:mx-3 md:mx-3 mx-0">
-            <ProductRating rating={product.rating.rate} />
+            <ProductRating rating={product?.rating?.rate} />
           </div>
 
           <div className="px-3 py-0.5 bg-yellow-200 mr-2 rounded-lg font-bold text-black">
-            {product.rating.count}
+            {product?.rating?.count}
           </div>
         </div>
         <div className="flex justify-center items-center mt-3">

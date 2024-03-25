@@ -6,16 +6,21 @@ import ProductRating from "./ProductRating";
 import { BsFillCartXFill } from "react-icons/bs";
 import { remove } from "../store/cartSlice";
 import toast from "react-hot-toast";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
 
 function Cart() {
   const cartProducts = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
-  const removeFromCart = (id) =>{
+  const removeFromCart = (id) => {
     dispatch(remove(id));
-    toast.remove("Item Removed Successfully")
-  }
+    toast.remove("Item Removed Successfully");
+  };
+  // const history = useHistory();
+  const navigate = useNavigate();
 
   const product = cartProducts.map((product) => (
     <div key={product.id}>
@@ -61,7 +66,18 @@ function Cart() {
   return (
     <div className="bg-gradient-to-br from-blue-500 via-black to-purple-500">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-        {product}
+        {cartProducts.length > 0 ? (
+          product
+        ) : (
+          <div className="text-4xl text-white text-center h-screen w-full flex flex-col justify-center items-center font-bold lg:relative lg:left-[500px] lg:bottom-28">
+            {" "}
+            <span>Cart Is Empty</span>
+            <button className="m-6 px-10 py-5 bg-gradient-to-br from-amber-600 via-blue-950 to-pink-300 border border-stone-200 shadow-lg rounded-full hover:bg-blue-300 lg:hover:scale-110 hover:scale-75 hover:ease-in-out text-xl flex flex-row justify-center items-center" onClick={()=> navigate('/')}>
+              <IoMdArrowRoundBack className="mx-2 text-2xl" />
+              Back To Store
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
